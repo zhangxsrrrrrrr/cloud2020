@@ -1,0 +1,29 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-consumer-fegin-order
+
+eureka:
+  client:
+    #   是否将自己注册进EurekaServer默认位true
+    register-with-eureka: false
+    #    是否从EurekaServer抓取自己已有的注册信息，默认位true，单节点无所谓，集群必须是true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka,http://eureka7001.com:7001/eureka  #  集群版
+
+#属性查看org.springframework.cloud.openfeign.FeignClientProperties.FeignClientConfiguration
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+
+logging:
+  level:
+    edu.ahau.springcloud.service.PaymentFeginService: debug
+
+
+
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.ahau.springcloud.dao.PaymentDao">
+    <insert id="save" parameterType="edu.ahau.springcloud.entities.Payment" useGeneratedKeys="true" keyProperty="payment.id">
+        insert into payment(serial) values (#{payment.serial})
+    </insert>
+
+
+    <select id="selectPay" resultType="edu.ahau.springcloud.entities.Payment">
+        select * from payment where id=#{id}
+    </select>
+</mapper>
