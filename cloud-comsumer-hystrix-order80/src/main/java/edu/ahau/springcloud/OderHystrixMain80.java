@@ -1,25 +1,25 @@
 package edu.ahau.springcloud;
 
-import edu.ahau.myrule.MySelfRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author: zhangxuna
- * @create: 2021-05-18 15:32
+ * @create: 2021-06-24 8:52
  * @description: TODO
  */
-
-@EnableDiscoveryClient
-// 必须要大写
-@RibbonClient(name = "CLOUD-PAYMENT-SERVICE", configuration = MySelfRule.class)
 @SpringBootApplication
+@EnableHystrix
 @EnableEurekaClient
-public class Order80Application {
+@EnableFeignClients
+@EnableCircuitBreaker
+public class OderHystrixMain80 {
     public static void main(String[] args) {
-        SpringApplication.run(Order80Application.class, args);
+        SpringApplication.run(OderHystrixMain80.class, args);
     }
 }

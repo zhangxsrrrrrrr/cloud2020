@@ -20,10 +20,25 @@ ribbon:
   ConnectTimeout: 5000
 
 
+hystrix:
+  metrics:
+    enabled: true
+
+
+
+
+
 logging:
   level:
     edu.ahau.springcloud.service.PaymentFeginService: debug
 
+
+#org.springframework.cloud.openfeign.FeignClientProperties.FeignClientConfiguration
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
 
 
 

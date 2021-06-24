@@ -32,3 +32,4 @@ eureka:
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   type-aliases-package: edu.ahau.springcloud.entities    # 所有Entity别名类所在包
+

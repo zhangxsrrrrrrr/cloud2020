@@ -1,0 +1,27 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/
+# 支持熔断机制
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default: #也可以针对多个服务
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 9000 # 设置hystrix的超时时间为4000ms
+
+# 开启了openfeign需要对连接时间做出修改，如果不添加，客户端的默认连接时间3s，如果在客户端时间超过3s连接会直接熔断
+ribbon:
+  ConnectTimeout: 2000
+  ReadTimeout: 2000
+
